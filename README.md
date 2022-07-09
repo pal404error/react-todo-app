@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Day2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Add todo and Delete todo changes
 
 ## Available Scripts
 
