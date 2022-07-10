@@ -7,6 +7,25 @@ import {AddTodo} from './comp/AddTodo'
 import React, { useState } from 'react';
 
 function App() {
+
+
+  const addTodo = (title,desc)=> {
+    console.log("Worksingf n", title,desc)
+    let sno;
+    if(todos.length==0){
+      let sno = 1;
+    } else{
+      let sno = todos[todos.length -1].sno +1;
+    }
+    
+    const myTodo = {
+      sno : sno,
+      title: title,
+      desc:desc
+    }
+    setTodos([...todos, myTodo]);
+    console.log(myTodo)
+  }
 const onDelete =(todo)=>{
   console.log("I am on delete", todo)
   setTodos(todos.filter((e)=>{
@@ -35,7 +54,7 @@ const onDelete =(todo)=>{
 
     <>
     <Header title="React Todo" searchBar={true}/>
-    <AddTodo/>
+    <AddTodo addTodo={addTodo} />
     <Todos todos = {todos} onDelete = {onDelete}/>
     <Footer/>
     </>

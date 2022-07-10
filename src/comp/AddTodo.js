@@ -1,26 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-export const AddTodo = () => {
+export const AddTodo = (props) => {
+
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!title || !desc) {
+      alert("Title or Desc cannot be empty")
+    }
+    props.addTodo(title,desc)
+
+  }
   return (
 
     <div className="container">
-    <h2>Add todo</h2>
-        <form>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1"/>
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+      <h2>Add todo</h2>
+      <form onSubmit={submit}>
+        <div className="mb-3">
+          <label htmlFor="todoTitle" className="form-label">Title</label>
+          <input type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} className="form-control" id="title" aria-describedby="emailHelp" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">description</label>
+          <input type="text" value={desc} onChange={(e) => { setDesc(e.target.value) }} className="form-control" id="desc" />
+        </div>
+        <button type="submit" className="btn btn-outline-success">Add Todo</button>
+      </form>
     </div>
-    )
+  )
 }
