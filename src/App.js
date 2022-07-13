@@ -1,10 +1,10 @@
 
 import './App.css';
-import Header from './comp/Header';
 import { Footer } from './comp/Footer';
 import { Todos } from './comp/Todos';
-import { AddTodo } from './comp/AddTodo'
+import { Addform } from './comp/Addform'
 import { About } from './comp/About'
+import { Head }from './comp/Head'
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter,
@@ -63,11 +63,13 @@ function App() {
     <>
       <BrowserRouter>
 
-        <Header title="Todo List" searchBar={true} />
+        {/* <Header title="Todo List" searchBar={true} /> */}
+        <Head/>
         <Routes>
           <Route exact path="/" element= {
               <>
-              <AddTodo addTodo={addTodo} />
+              
+              <Addform addTodo={addTodo}/>
               <Todos todos={todos} onDelete={onDelete} />
               </>
           } />
