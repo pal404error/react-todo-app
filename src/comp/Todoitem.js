@@ -4,7 +4,7 @@ export const Todoitem = ({todo, onDelete}) => {
   
   return (
     <>
-    <div className="card border-primary mb-3">
+    <div className="card border-primary mb-2 mt-4">
       <h3>
       <div className='card-header'>{todo.title}</div>
       <div className='card-body text-primary'>{todo.desc}</div>
@@ -12,7 +12,7 @@ export const Todoitem = ({todo, onDelete}) => {
       </h3>
     </div>
     <button className="btn btn-danger" onClick={()=>{onDelete(todo)}}>delete</button>
-    <hr></hr>
+    
     </>
   )
 }
